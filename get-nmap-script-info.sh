@@ -11,9 +11,9 @@ function check_input() {
 
 function main() {
     i=1
-    mkdir _tmp
-    echo $(ls /usr/share/nmap/scripts/*$1* -1 2> /dev/null) > _tmp/list.txt
-    read -a a_dir < _tmp/list.txt
+    mkdir /tmp/gnsi/
+    echo $(ls /usr/share/nmap/scripts/*$1* -1 2> /dev/null) > /tmp/gnsi/list.txt
+    read -a a_dir < /tmp/gnsi/list.txt
 
     for d in ${a_dir[@]}
     do  
@@ -29,7 +29,7 @@ function main() {
 }
 
 function cleanup() {
-    rm -rf _tmp
+    rm -rf /tmp/gnsi/
 }
 
 check_input $1
